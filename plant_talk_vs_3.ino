@@ -19,6 +19,12 @@ int buz = 12;
 int sensorPin = 0;
 int senval = 0;
 
+// sonar values
+int trigPin=9;
+int echoPin=10;
+int sonarled =8;
+long duration, distance;
+
 void setup() 
 {
   pinMode(ledPin, OUTPUT);
@@ -26,19 +32,22 @@ void setup()
   pinMode(ledPin, OUTPUT);
   Serial.begin(9600);
 
+  pinMode(echoPin, INPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(sonarled, OUTPUT);
+  
 }
 
 void loop() 
 {
- senval = analogRead(sensorPin);
-
+ senval = analogRead(sensorPin);;
                                            // In case of no water 
  if(senval<400)
  {
    digitalWrite(ledPin, HIGH);
    digitalWrite(buz,HIGH);
    Serial.print("I am dying, Please Help Me, Urgently Need Water\n"); 
-    delay(1000);
+    delay(100);
    digitalWrite(buz,LOW);
  }
            
@@ -61,5 +70,21 @@ void loop()
    Serial.print("Thank You!,\nThank You very much, Vijay\n");
    delay(1000);
  }
+
+ //sonar distance led
+  digitalWrite(trigPin,HIGH);
+    delayMicroseconds(100);
+  digitalWrite(trigPin,LOW);
+    duration=pulseIn(echoPin,HIGH);
+    distance=(duration/2)/29.1;
+  Serial.print("the thing is at ");
+  Serial.print(distance);
+  Serial.println("CM");
+    delay(100);
+  
+  if(distance<=20)
+  {  digitalWrite(sonarled,HIGH); }
+  else if(distance>=20)
+  {  digitalWrite(sonarled,LOW);  }
  
 }
