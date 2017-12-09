@@ -18,7 +18,7 @@ int buz = 12;
 int sensorPin = 0;
 int senval = 0;
 int flag ;   // old sensor value
-
+char data = 0;            //Variable for storing received data
 // sonar values
 int trigPin=9;
 int echoPin=10;
@@ -46,17 +46,17 @@ void sonar_read()
       duration=pulseIn(echoPin,HIGH);
       distance=(duration/2)/29.1;
 
-//    Serial.print("the thing is at ");
-//    Serial.print(distance);
-//    Serial.print("CM");
-//     Serial.println("");
+    Serial.print("the thing is at ");
+    Serial.print(distance);
+    Serial.print("CM");
+     Serial.println("");
       
-    if(distance<=10)
+    if(distance<=20)
     {  
       digitalWrite(sonarled,HIGH); 
       digitalWrite(buz,HIGH);
     }
-    else if(distance>=10)
+    else if(distance>=20)
     {  
       digitalWrite(sonarled,LOW); 
       digitalWrite(buz,LOW); 
@@ -67,6 +67,17 @@ void sonar_read()
 void loop() 
 {
  senval = analogRead(sensorPin);;
+
+//    if(Serial.available() > 0)      // Send data only when you receive data:
+//   {
+//      data = Serial.read();        //Read the incoming data & store into data
+//      Serial.print(data);          //Print Value inside data in Serial monitor
+//      Serial.print("\n");        
+//      if(data == '1')              // Checks whether value of data is equal to 1
+//         digitalWrite(7, HIGH);   //If value is 1 then LED turns ON
+//      else if(data == '0')         //  Checks whether value of data is equal to 0
+//         digitalWrite(7, LOW);    //If value is 0 then LED turns OFF
+//   }
 
     sonar_read();
     Serial.println(senval);
