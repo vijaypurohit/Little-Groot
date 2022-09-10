@@ -19,7 +19,7 @@ In case of More Water
 This version of program is for normal plant and in future it will be created for different types of plant according to their water requirement.
 
 ## Files
-* [ppt](https://github.com/vijaypurohit/little_groot/blob/master/Little%20Groot.pptx)
+* [ppt](https://github.com/vijaypurohit/Little-Groot/blob/master/Little%20Groot.pptx)
 
 #### Idea From
 * Head First C: Arduino Lab
