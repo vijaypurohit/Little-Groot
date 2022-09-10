@@ -12,8 +12,8 @@ In case of no water
 In case of Little Water
 In case of More Water
 
-* It also detects the upcoming creatures around it and will start buzzer sound to send them away. It will also notify its owner about it.
-* It will detect the pH level of the soil and will tell its master about its condition.
+* It also detects the **upcoming creatures** around it and will start buzzer sound to send them away. It will also notify its owner about it.
+* It will detect the **pH level** of the soil and will tell its master about its condition.
 
 ## Future Prospect
 This version of program is for normal plant and in future it will be created for different types of plant according to their water requirement.
